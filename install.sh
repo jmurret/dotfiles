@@ -161,35 +161,10 @@ install_claude_sandbox_settings() {
   ok "wrote $dst (filtered for sandbox — no hooks, no macOS paths)"
 }
 
-# --- Git identity -----------------------------------------------------------
+# --- Git -----------------------------------------------------------
 
 install_git() {
-  info "configuring git identity"
-
-  # Only set if not already configured (don't clobber existing global config)
-  if [ -z "$(git config --global user.name 2>/dev/null || true)" ]; then
-    git config --global user.name "Michael Zalimeni"
-    ok "set git user.name"
-  else
-    ok "git user.name already set: $(git config --global user.name)"
-  fi
-
-  if [ -z "$(git config --global user.email 2>/dev/null || true)" ]; then
-    git config --global user.email "mzalimeni@gmail.com"
-    ok "set git user.email (personal default)"
-  else
-    ok "git user.email already set: $(git config --global user.email)"
-  fi
-
-  # includeIf for HashiCorp repos
-  local hashi_cfg="$DOTFILES_DIR/git/hashi/.gitconfig"
-  if [ -f "$hashi_cfg" ]; then
-    git config --global --replace-all \
-      "includeIf.hasconfig:remote.*.url:git@github.com:hashicorp/**.path" \
-      "$hashi_cfg"
-    ok "set includeIf for hashicorp org -> $hashi_cfg"
-  fi
-
+  info "configuring git helpers"
   # git helpers
   if [ -f "$DOTFILES_DIR/git/.githelpers" ]; then
     git config --global alias.lg "!source $DOTFILES_DIR/git/.githelpers && pretty_git_log"
