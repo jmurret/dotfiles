@@ -31,7 +31,7 @@ everforest_colors terminal color palette reference
 Clone the repo and run the installer:
 
 ```sh
-git clone git@github.com:zalimeni/dotfiles.git ~/dotfiles
+git clone git@github.com:jmurret/dotfiles.git ~/dotfiles
 cd ~/dotfiles && ./install.sh
 ```
 
