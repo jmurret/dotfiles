@@ -98,14 +98,11 @@ art_login () {
 }
 
 refresh_kind () {
-    kind delete cluster --name dc1
-    kind create cluster --name dc1
-    docker build -f ./Dockerfile.static-client-sidecar -t clientsidecar .
-    docker build -f ./Dockerfile.static-server-sidecar -t serversidecar .
-    kind load docker-image serversidecar --name dc1
-    kind load docker-image clientsidecar --name dc1
+    kind delete cluster --name $1
+    kind create cluster --name $1
 }
 
+export DOCKER_HOST='unix:///var/folders/qx/v55872bj377d4pjsmymty0040000gn/T/podman/podman-machine-default-api.sock'
 export GOLANG_PROTOBUF_REGISTRATION_CONFLICT=ignore
 export AWS_ACCOUNT_ID=216329762767
 export ANTHROPIC_DEFAULT_SONNET_MODEL="us.anthropic.claude-sonnet-4-6"
