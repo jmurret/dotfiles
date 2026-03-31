@@ -26,10 +26,17 @@ everforest_colors terminal color palette reference
 
 ## Setup
 
+
+### Pre-requisite steps:
+- [] Download Xcode from the Mac App Store.
+- [] Install Homebrew.
+- [] Install Homebrew and Homebrew Bundle.
+- [] `brew bundle`  in stall brew list from Brewfile
+- [] [Generate new SSH Key and add it to SSH Agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+- [] [Add it to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+### Installation
 > **WARNING:** Before installing, verify you're ok with the files that will be overwritten, or save a backup!
-
-Clone the repo and run the installer:
-
 ```sh
 git clone git@github.com:jmurret/dotfiles.git ~/dotfiles
 cd ~/dotfiles && ./install.sh
@@ -50,7 +57,6 @@ The installer manages subtle config, frontmatter, and other differences between 
 
 In the Claude Environments UI, set:
 
-- **Setup command**: `git clone https://github.com/zalimeni/dotfiles.git ~/dotfiles && ~/dotfiles/install.sh`
 - **Environment variables**: `CONTEXT7_KEY`, plus any secrets from `system/.private_env`
 
 Use `tmux-agent-worktree` for new delegated agent worktrees; harness selection comes
