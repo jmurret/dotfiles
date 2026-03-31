@@ -12,10 +12,13 @@ set -euo pipefail
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 PLATFORM="$(uname -s)"
 
-info()  { printf '  [ \033[00;34m..\033[0m ] %s\n' "$1"; }
-ok()    { printf '  [ \033[00;32mOK\033[0m ] %s\n' "$1"; }
-warn()  { printf '  [ \033[0;33m!!\033[0m ] %s\n' "$1"; }
-fail()  { printf '  [\033[0;31mFAIL\033[0m] %s\n' "$1"; exit 1; }
+info() { printf '  [ \033[00;34m..\033[0m ] %s\n' "$1"; }
+ok() { printf '  [ \033[00;32mOK\033[0m ] %s\n' "$1"; }
+warn() { printf '  [ \033[0;33m!!\033[0m ] %s\n' "$1"; }
+fail() {
+  printf '  [\033[0;31mFAIL\033[0m] %s\n' "$1"
+  exit 1
+}
 
 # --- helpers ----------------------------------------------------------------
 
@@ -51,12 +54,11 @@ install_nvim() {
   local nvim_dir="$HOME/.config/nvim"
 
   ln -s "$DOTFILES_DIR/.config/nvim" "$nvim_dir"
+  nvim +PlugInstall +qall
 
   echo ""
   info "installed nvim config via symlinks"
 }
-
-
 
 # --- opencode config --------------------------------------------------------
 
@@ -171,7 +173,7 @@ install_claude_sandbox_settings() {
   jq '
     del(.env, .hooks, .sandbox, .skipDangerousModePermissionPrompt)
     | .permissions.allow |= map(select(test("/") | not))
-  ' "$src" > "$dst"
+  ' "$src" >"$dst"
 
   ok "wrote $dst (filtered for sandbox — no hooks, no macOS paths)"
 }
@@ -200,9 +202,9 @@ install_shell() {
   if [ -f "$profile" ] && grep -qF "$DOTFILES_DIR/bin" "$profile"; then
     ok "PATH already includes dotfiles/bin"
   else
-    echo "" >> "$profile"
-    echo "# Dotfiles" >> "$profile"
-    echo "$path_line" >> "$profile"
+    echo "" >>"$profile"
+    echo "# Dotfiles" >>"$profile"
+    echo "$path_line" >>"$profile"
     ok "added dotfiles/bin to PATH in $profile"
   fi
 
@@ -220,8 +222,8 @@ done"
     if grep -qF "Dotfiles shell config" "$rc" 2>/dev/null; then
       ok "shell config already sourced in $rc"
     else
-      echo "" >> "$rc"
-      echo "$source_block" >> "$rc"
+      echo "" >>"$rc"
+      echo "$source_block" >>"$rc"
       ok "added shell config to $rc"
     fi
   fi
@@ -237,7 +239,7 @@ install_sandbox_env() {
   fi
 
   info "creating system/.env.sandbox (portable env vars)"
-  cat > "$env_file" << 'ENV'
+  cat >"$env_file" <<'ENV'
 # Portable environment variables for Linux/sandbox — sourced by install.sh
 # macOS uses system/.env instead (has Homebrew, platform-specific paths)
 
