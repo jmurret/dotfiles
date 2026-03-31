@@ -34,6 +34,7 @@ everforest_colors terminal color palette reference
 - [] `brew bundle`  in stall brew list from Brewfile
 - [] [Generate new SSH Key and add it to SSH Agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 - [] [Add it to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+- [] Install oh-my-zsh: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
 ### Installation
 > **WARNING:** Before installing, verify you're ok with the files that will be overwritten, or save a backup!

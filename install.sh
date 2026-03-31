@@ -46,18 +46,27 @@ generate_agent_config() {
   "$generator"
 }
 
+# --- zsh config --------------------------------------------------------
+
+install_zsh() {
+  info "installing zsh config"
+
+  link_file "$DOTFILES_DIR/.config/zsh/.zshrc" "$HOME/.zshrc"
+
+  ok "installed zshrc via symlinks"
+}
+
 # --- nvim config --------------------------------------------------------
 
 install_nvim() {
   info "installing nvim config"
 
-  local nvim_dir="$HOME/.config/nvim"
+  local config_dir="$HOME/.config"
 
-  ln -s "$DOTFILES_DIR/.config/nvim" "$nvim_dir"
+  [ ! -e "$config_dir/nvim" ] && ln -s "$DOTFILES_DIR/.config/nvim" "$config_dir"
   nvim +PlugInstall +qall
 
-  echo ""
-  info "installed nvim config via symlinks"
+  ok "installed nvim config via symlinks"
 }
 
 # --- opencode config --------------------------------------------------------
@@ -281,6 +290,7 @@ main() {
   install_claude
   install_git
   install_shell
+  install_zsh
   install_nvim
 
   if [ "$PLATFORM" != "Darwin" ]; then
