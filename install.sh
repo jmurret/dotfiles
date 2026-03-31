@@ -43,6 +43,21 @@ generate_agent_config() {
   "$generator"
 }
 
+# --- nvim config --------------------------------------------------------
+
+install_nvim() {
+  info "installing nvim config"
+
+  local nvim_dir="$HOME/.config/nvim"
+
+  ln -s "$DOTFILES_DIR/.config/nvim" "$nvim_dir"
+
+  echo ""
+  info "installed nvim config via symlinks"
+}
+
+
+
 # --- opencode config --------------------------------------------------------
 
 install_opencode() {
@@ -264,6 +279,7 @@ main() {
   install_claude
   install_git
   install_shell
+  install_nvim
 
   if [ "$PLATFORM" != "Darwin" ]; then
     install_sandbox_env
