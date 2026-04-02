@@ -113,6 +113,8 @@ export AWS_PROFILE=${AWS_PROFILE:-sandbox_bedrock}
 export CLAUDE_CODE_USE_BEDROCK=1
 export DISABLE_PROMPT_CACHING=0
 export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
+export GOPRIVATE="github.com/hashicorp/*,github.com/hashicorp-forge/*"
+
 # The following lines were added by compinstall
 # case insensitive path-completion
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
