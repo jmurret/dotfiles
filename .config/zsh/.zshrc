@@ -76,6 +76,9 @@ alias cdh="cd ~/Documents/github/hashicorp"
 alias cdj="cd ~/Documents/github/jmurret"
 alias cdi="cd ~/Documents/github/hashicorp/cloud-infragraph"
 
+# docker
+alias docker="podman"
+
 # git
 alias g="git"
 
@@ -94,7 +97,10 @@ alias tf="terraform"
 
 # commands
 art_login () {
-    doormat login && eval $(doormat aws export --account ${AWS_ACCOUNT_ID}) && echo "$(doormat artifactory create-token | jq -r '.access_token')" | docker login -u "john.murret@hashicorp.com" --password-stdin cloud-services-docker-virtual.artifactory.hashicorp.engineering
+    doormat login && eval $(doormat aws export --account ${AWS_ACCOUNT_ID}) && \
+      echo "$(doormat artifactory create-token | jq -r '.access_token')" | podman login -u "john.murret@hashicorp.com" --password-stdin cloud-services-docker-virtual.artifactory.hashicorp.engineering && \
+      echo "$(doormat artifactory create-token | jq -r '.access_token')" | podman login -u "john.murret@hashicorp.com" --password-stdin cloud-dev-docker-local.artifactory.hashicorp.engineering && \
+      echo "$(doormat artifactory create-token | jq -r '.access_token')" | podman login -u "john.murret@hashicorp.com" --password-stdin cloud-services-local.artifactory.hashicorp.engineering
 }
 
 refresh_kind () {
@@ -105,14 +111,6 @@ refresh_kind () {
 export DOCKER_HOST='unix:///var/folders/qx/v55872bj377d4pjsmymty0040000gn/T/podman/podman-machine-default-api.sock'
 export GOLANG_PROTOBUF_REGISTRATION_CONFLICT=ignore
 export AWS_ACCOUNT_ID=216329762767
-export ANTHROPIC_DEFAULT_SONNET_MODEL="us.anthropic.claude-sonnet-4-6"
-export ANTHROPIC_DEFAULT_HAIKU_MODEL="us.anthropic.claude-haiku-4-5-20251001-v1:0"
-export ANTHROPIC_DEFAULT_OPUS_MODEL="us.anthropic.claude-opus-4-6-v1"
-export ANTHROPIC_MODEL="us.anthropic.claude-opus-4-6-v1"
-export AWS_PROFILE=${AWS_PROFILE:-sandbox_bedrock}
-export CLAUDE_CODE_USE_BEDROCK=1
-export DISABLE_PROMPT_CACHING=0
-export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 export GOPRIVATE="github.com/hashicorp/*,github.com/hashicorp-forge/*"
 
 # The following lines were added by compinstall
@@ -138,3 +136,8 @@ export GITHUB_TOKEN="$(gh auth token)"
 eval "$(direnv hook zsh)"
 
 
+if which hcloud > /dev/null; then
+  autoload -Uz compinit && compinit
+  autoload -Uz bashcompinit && bashcompinit
+  complete -C $(which hcloud) hcloud
+fi
