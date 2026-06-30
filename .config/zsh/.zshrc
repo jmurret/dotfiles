@@ -86,8 +86,8 @@ alias g="git"
 alias h="helm"
 
 # hcloud
-source '/Users/jmurret/Library/Application Support/hcloud/hashistack/aliases.bash'
-source '/Users/jmurret/Library/Application Support/hcloud/hashistack/aliases.zsh'
+source '/Users/johnmurret/Library/Application Support/hcloud/hashistack/aliases.bash'
+source '/Users/johnmurret/Library/Application Support/hcloud/hashistack/aliases.zsh'
 
 # k8s
 alias k="kubectl"
@@ -112,6 +112,8 @@ export DOCKER_HOST='unix:///var/folders/qx/v55872bj377d4pjsmymty0040000gn/T/podm
 export GOLANG_PROTOBUF_REGISTRATION_CONFLICT=ignore
 export AWS_ACCOUNT_ID=216329762767
 export GOPRIVATE="github.com/hashicorp/*,github.com/hashicorp-forge/*"
+
+source '/Users/johnmurret/Library/Application Support/hcloud/hashistack/aliases.zsh'
 
 # The following lines were added by compinstall
 # case insensitive path-completion
@@ -141,3 +143,4 @@ if which hcloud > /dev/null; then
   autoload -Uz bashcompinit && bashcompinit
   complete -C $(which hcloud) hcloud
 fi
+

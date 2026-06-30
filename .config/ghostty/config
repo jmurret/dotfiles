@@ -3,6 +3,8 @@ window-vsync = false
 shell-integration-features = no-cursor,no-sudo,no-title
 wait-after-command = false
 
+scrollback-limit = 100000000
+
 gtk-titlebar = false
 
 font-family = FiraCode Nerd Font Mono

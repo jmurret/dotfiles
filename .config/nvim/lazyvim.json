@@ -1,9 +1,11 @@
 {
   "extras": [
     "lazyvim.plugins.extras.ai.copilot",
-    "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.lang.go",
-    "lazyvim.plugins.extras.test.core"
+    "lazyvim.plugins.extras.lang.markdown",
+    "lazyvim.plugins.extras.lsp.neoconf",
+    "lazyvim.plugins.extras.test.core",
+    "lazyvim.plugins.extras.util.dot"
   ],
   "install_version": 8,
   "news": {
