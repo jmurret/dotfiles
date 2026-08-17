@@ -144,3 +144,4 @@ if which hcloud > /dev/null; then
   complete -C $(which hcloud) hcloud
 fi
 
+export GPG_TTY=$(tty)
