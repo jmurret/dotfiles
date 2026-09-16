@@ -1,11 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Read(file_path:/Users/michael.zalimeni/workspace/**)",
-      "Edit(file_path:/Users/michael.zalimeni/workspace/**)",
-      "Write(file_path:/Users/michael.zalimeni/workspace/**)",
-      "Glob(path:/Users/michael.zalimeni/workspace/**)",
-      "Grep(path:/Users/michael.zalimeni/workspace/**)",
+      "Read(file_path:/Users/johnmurret/workspace/**)",
+      "Edit(file_path:/Users/johnmurret/workspace/**)",
+      "Write(file_path:/Users/johnmurret/workspace/**)",
+      "Glob(path:/Users/johnmurret/workspace/**)",
+      "Grep(path:/Users/johnmurret/workspace/**)",
       "Bash(bd *)",
       "Bash(git *)",
       "Bash(gh *)",
@@ -38,7 +38,7 @@
       "Skill(skill:bdstatus)"
     ]
   },
-  "model": "opus[1m]",
+  "model": "sonnet",
   "hooks": {
     "SessionStart": [
       {
@@ -46,7 +46,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/michael.zalimeni/.claude/hooks/peon-ping/peon.sh",
+            "command": "/Users/johnmurret/.claude/hooks/peon-ping/peon.sh",
             "timeout": 10
           }
         ]
@@ -58,7 +58,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/michael.zalimeni/.claude/hooks/peon-ping/peon.sh",
+            "command": "/Users/johnmurret/.claude/hooks/peon-ping/peon.sh",
             "timeout": 10,
             "async": true
           }
@@ -71,7 +71,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/michael.zalimeni/.claude/hooks/peon-ping/peon.sh",
+            "command": "/Users/johnmurret/.claude/hooks/peon-ping/peon.sh",
             "timeout": 10,
             "async": true
           }
@@ -84,7 +84,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/michael.zalimeni/.claude/hooks/peon-ping/peon.sh",
+            "command": "/Users/johnmurret/.claude/hooks/peon-ping/peon.sh",
             "timeout": 10,
             "async": true
           }
@@ -97,7 +97,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/michael.zalimeni/.claude/hooks/peon-ping/peon.sh",
+            "command": "/Users/johnmurret/.claude/hooks/peon-ping/peon.sh",
             "timeout": 10,
             "async": true
           }
@@ -110,7 +110,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/michael.zalimeni/.claude/hooks/peon-ping/peon.sh",
+            "command": "/Users/johnmurret/.claude/hooks/peon-ping/peon.sh",
             "timeout": 10,
             "async": true
           }
@@ -123,7 +123,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/michael.zalimeni/.claude/hooks/peon-ping/peon.sh",
+            "command": "/Users/johnmurret/.claude/hooks/peon-ping/peon.sh",
             "timeout": 10,
             "async": true
           }
@@ -136,7 +136,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/michael.zalimeni/.claude/hooks/peon-ping/peon.sh",
+            "command": "/Users/johnmurret/.claude/hooks/peon-ping/peon.sh",
             "timeout": 10,
             "async": true
           }
@@ -149,7 +149,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/michael.zalimeni/.claude/hooks/peon-ping/peon.sh",
+            "command": "/Users/johnmurret/.claude/hooks/peon-ping/peon.sh",
             "timeout": 10,
             "async": true
           }
@@ -174,9 +174,11 @@
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
     "additionalWritePaths": [
-      "/Users/michael.zalimeni/go/pkg/mod/cache",
-      "/Users/michael.zalimeni/Library/Caches"
+      "/Users/johnmurret/go/pkg/mod/cache",
+      "/Users/johnmurret/Library/Caches"
     ]
   },
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1" 
 }

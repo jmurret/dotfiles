@@ -105,13 +105,14 @@ art_login () {
 
 refresh_kind () {
     kind delete cluster --name $1
-    kind create cluster --name $1
+    kind create cluster --name $1 --config ~/.config/kind/dc1-config.yaml
 }
 
 export DOCKER_HOST='unix:///var/folders/qx/v55872bj377d4pjsmymty0040000gn/T/podman/podman-machine-default-api.sock'
 export GOLANG_PROTOBUF_REGISTRATION_CONFLICT=ignore
 export AWS_ACCOUNT_ID=216329762767
 export GOPRIVATE="github.com/hashicorp/*,github.com/hashicorp-forge/*"
+export IBM_ENTITLEMENT_KEY_STAGING="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE3ODc1OTc4MzksImp0aSI6ImNkYzhkMTA4YThkZjRhMWE4OGU4OTQyMTE4MzQ0ZTUyIn0.5eZG4b4I6xzxTKB_wvLE81IK5ju6N9v_tgrLabmGgzI"
 
 source '/Users/johnmurret/Library/Application Support/hcloud/hashistack/aliases.zsh'
 
@@ -145,3 +146,8 @@ if which hcloud > /dev/null; then
 fi
 
 export GPG_TTY=$(tty)
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+export IBM_ENTITLEMENT_KEY_STAGING="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJlbnYiOiJzdGFnZSIsImlhdCI6MTczNjM3MTQwOSwianRpIjoiZTJlYjEwYTk1MDJjNGQ5YjhmNTU4NjhmZmI5MjAwODEifQ.USQSeBT8JNQ1GcEAApr98fApOcIA6osuonYryFOViWo"
+
+export PATH="/opt/podman/bin:$PATH"

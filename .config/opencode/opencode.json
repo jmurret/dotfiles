@@ -4,7 +4,7 @@
   // Model: using GitHub Copilot. After running `opencode /connect` and selecting
   // GitHub Copilot, run `/models` inside opencode to list available models and
   // confirm the exact IDs. Update these values if the IDs differ.
-  "model": "github-copilot/claude-sonnet-5",
+  "model": "github-copilot/gpt-5.6-luna",
   "small_model": "github-copilot/gpt-5.3-codex",
 
   // Global instructions file — generated from the canonical Claude instructions
@@ -98,6 +98,5 @@
       "balanced": "small_model",
       "heavy": "model"
     }
-  },
-  "disabled_providers": ["github-models", "github-copilot"]
+  }
 }
