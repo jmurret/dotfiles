@@ -1,10 +1,5 @@
 tap "anomalyco/tap"
-tap "atlassian/acli"
 tap "golangci/tap"
-tap "hashicorp/internal", "git@github.com:hashicorp/homebrew-internal.git"
-tap "hashicorp/security", "git@github.com:hashicorp/homebrew-security.git"
-tap "hashicorp/tap"
-tap "libkrun/krun", "https://github.com/libkrun/homebrew-krun.git"
 tap "moricho/tparallel"
 tap "tokiwong/tap"
 # Run your GitHub Actions locally
@@ -121,12 +116,8 @@ brew "node"
 brew "nvm"
 # Audio codecs extracted from Android open source project
 brew "opencore-amr"
-# SDK for building Kubernetes applications
-brew "operator-sdk"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
-# Tool for managing OCI containers and pods
-brew "podman"
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
 # Protocol buffers (Google's data interchange format)
@@ -167,16 +158,6 @@ brew "yarn"
 brew "zsh"
 # The AI coding agent built for the terminal.
 brew "anomalyco/tap/opencode", trusted: true
-# hcloud -- CLI tool to manage and interact with various parts of the Cloud Platform
-brew "hashicorp/internal/hcloud", trusted: true
-# Password manager that keeps all passwords secure behind one password
-cask "1password"
-# Anthropic's official Claude AI desktop app
-cask "claude"
-# Terminal-based AI coding assistant
-cask "claude-code"
-# Tool for service discovery, monitoring and configuration
-cask "consul"
 # Universal database tool and SQL client
 cask "dbeaver-community"
 # Terminal emulator that uses platform-native UI and GPU acceleration
@@ -187,7 +168,6 @@ cask "obsidian"
 cask "podman-desktop"
 go "github.com/air-verse/air"
 go "github.com/klauspost/asmfmt/cmd/asmfmt"
-go "github.com/hashicorp/copywrite"
 go "github.com/go-delve/delve/cmd/dlv"
 go "github.com/reillywatson/enumcover/cmd/enumcover"
 go "github.com/kisielk/errcheck"
@@ -205,16 +185,11 @@ go "github.com/jstemmer/gotags"
 go "github.com/cweill/gotests/gotests"
 go "golang.org/x/tools/cmd/guru"
 go "github.com/koron/iferr"
-go "github.com/hashicorp/cloud-infragraph/cmd/ig"
-go "github.com/hashicorp/cloud-infragraph/cmd/igdp"
 go "github.com/josharian/impl"
 go "github.com/vektra/mockery/v2"
-go "github.com/hashicorp/mog"
 go "github.com/fatih/motion"
 go "golang.org/x/pkgsite/cmd/pkgsite"
 go "google.golang.org/protobuf/cmd/protoc-gen-go"
 go "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
 go "github.com/mgechev/revive"
 go "honnef.co/go/tools/cmd/staticcheck"
-npm "@mermaid-js/mermaid-cli"
-npm "tree-sitter-cli"

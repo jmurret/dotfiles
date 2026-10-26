@@ -2,7 +2,7 @@
 name: review-data
 description: Database interaction reviewer for SQL, Gremlin, connection management, and query patterns
 mode: subagent
-model: github-copilot/gpt-5.4
+model: github-copilot/gpt-5.6-luna
 tools:
   bash: false
   edit: false
